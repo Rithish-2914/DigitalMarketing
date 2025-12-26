@@ -60,7 +60,14 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Register main routes (generations API)
   await registerRoutes(httpServer, app);
+
+  // Register OpenAI integration routes (chat & image generation)
+  const { registerChatRoutes } = await import("./replit_integrations/chat");
+  const { registerImageRoutes } = await import("./replit_integrations/image");
+  registerChatRoutes(app);
+  registerImageRoutes(app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;

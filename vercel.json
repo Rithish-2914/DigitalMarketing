@@ -1,0 +1,21 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "env": {
+    "DATABASE_URL": {
+      "description": "PostgreSQL database connection string"
+    },
+    "SESSION_SECRET": {
+      "description": "Secret key for session encryption"
+    },
+    "VITE_API_BASE_URL": {
+      "description": "API base URL for frontend (defaults to same origin)"
+    }
+  },
+  "regions": ["iad1"],
+  "git": {
+    "silent": true
+  }
+}
